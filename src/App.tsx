@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'motion/react';
 // Mongolian patterns as SVG paths or components
 const MongolianPattern = ({ className }: { className?: string; key?: any }) => (
   <svg viewBox="0 0 100 100" className={className} fill="currentColor">
-    <path d="M10,50 L30,50 L30,30 L50,30 L50,10 L70,10 L70,30 L90,30 L90,50 L70,50 L70,70 L90,70 L90,90 L70,90 L70,70 L50,70 L50,90 L30,90 L30,70 L10,70 L10,50 Z M40,50 L50,40 L60,50 L50,60 L40,50 Z" />
+    {/* <path d="M10,50 L30,50 L30,30 L50,30 L50,10 L70,10 L70,30 L90,30 L90,50 L70,50 L70,70 L90,70 L90,90 L70,90 L70,70 L50,70 L50,90 L30,90 L30,70 L10,70 L10,50 Z M40,50 L50,40 L60,50 L50,60 L40,50 Z" /> */}
   </svg>
 );
 
@@ -18,11 +18,11 @@ const UlziiPattern = ({ className }: { className?: string; key?: any }) => (
 
 export default function App() {
   const [photo, setPhoto] = useState<string | null>(null);
-  const [logo, setLogo] = useState<string | null>('/images/default-logo.svg');
-  const [bgImage, setBgImage] = useState<string | null>(null);
-  const [name, setName] = useState('Н.БУМАННАНЗАД');
-  const [title, setTitle] = useState('ТАРИАЛАН СУМЫН УУГУУЛ, БАРУУН БҮСИЙН ЭРЧИМ ХҮЧНИЙ СИСТЕМ ТӨХК-НЫ ШУУРХАЙ ҮЙЛЧИЛГЭЭНИЙ ЭЛЖИЙН ИНЖЕНЕР');
-  const [amount, setAmount] = useState('1,000,000');
+  const [logo, setLogo] = useState<string | null>('/images/logo.png');
+  const [bgImage, setBgImage] = useState<string | null>("/images/bgframe.jpg");
+  const [name, setName] = useState('Pudnaa');
+  const [title, setTitle] = useState('БАРУУНТУРУУН СУМЫН УУГУУЛ, ИРГЭН');
+  const [amount, setAmount] = useState('10,000,000');
   const [isGenerating, setIsGenerating] = useState(false);
   const frameRef = useRef<HTMLDivElement>(null);
 
@@ -201,11 +201,6 @@ export default function App() {
           <div className="sticky top-32 w-full max-w-[600px]">
             <div className="flex items-center justify-between mb-4 px-2">
               <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest">Урьдчилсан харагдац</h3>
-              <div className="flex gap-1">
-                <div className="w-2 h-2 rounded-full bg-red-400"></div>
-                <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
-                <div className="w-2 h-2 rounded-full bg-green-400"></div>
-              </div>
             </div>
             
             <div className="bg-white p-4 rounded-3xl shadow-2xl shadow-gray-200/50 border border-gray-100 overflow-hidden">
@@ -219,7 +214,7 @@ export default function App() {
                 }}
               >
                 {/* Background Overlay if image exists */}
-                {bgImage && <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]"></div>}
+                {bgImage && <div className="absolute inset-0 bg-white/5 backdrop-blur-[1px]"></div>}
                 {/* Background Patterns */}
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
                   <div className="absolute top-0 left-0 w-full h-full grid grid-cols-6 gap-4 p-4">
@@ -230,9 +225,9 @@ export default function App() {
                 </div>
 
                 {/* Top Logo & Anniversary */}
-                <div className="absolute top-8 left-8 z-20 flex flex-col items-start gap-2">
+                <div className="absolute top-4 left-4 z-20 flex flex-col items-start gap-4">
                   {logo ? (
-                    <img src={logo} alt="80 Logo" className="h-20 w-auto object-contain" />
+                    <img src={logo} alt="80 Logo" className="h-auto w-[220px] object-contain" />
                   ) : (
                     <div className="h-20 w-20 bg-green-50 rounded-full flex items-center justify-center border-2 border-[#006633]/20">
                       <Award className="text-[#006633]" size={40} />
@@ -242,7 +237,7 @@ export default function App() {
 
                 {/* Main Frame Circle */}
                 <div className="relative mt-16 z-10">
-                  <div className="w-[320px] h-[320px] rounded-full border-[12px] border-white shadow-2xl relative overflow-hidden bg-gray-100">
+                  <div className="w-[280px] h-[280px] rounded-full border-[10px] border-white shadow-2xl relative overflow-hidden bg-gray-100">
                     {photo ? (
                       <img src={photo} alt="User" className="w-full h-full object-cover" />
                     ) : (
@@ -258,7 +253,7 @@ export default function App() {
                   <div className="absolute -inset-12 border-[1px] border-[#006633]/5 rounded-full pointer-events-none"></div>
                   
                   {/* Ulzii Patterns around circle */}
-                  {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
+                  {/* {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
                     <div 
                       key={deg}
                       className="absolute w-8 h-8 text-[#006633]/20"
@@ -270,11 +265,11 @@ export default function App() {
                     >
                       <UlziiPattern className="w-full h-full" />
                     </div>
-                  ))}
+                  ))} */}
                 </div>
 
                 {/* Content Area */}
-                <div className="mt-8 px-12 text-center z-20 w-full space-y-4">
+                <div className="mt-10 px-12 text-center z-20 w-full space-y-2">
                   <div className="space-y-1">
                     <p className="text-[11px] font-bold text-[#006633] uppercase tracking-[0.2em] leading-tight max-w-[400px] mx-auto opacity-80">
                       {title}
