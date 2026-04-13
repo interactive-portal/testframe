@@ -1,0 +1,8 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="90" fill="#006633" />
+  <circle cx="100" cy="100" r="75" fill="white" />
+  <path d="M100 40 L100 160 M40 100 L160 100" stroke="#006633" stroke-width="15" />
+  <circle cx="100" cy="100" r="30" fill="white" />
+  <path d="M85 100 L115 100 M100 85 L100 115" stroke="#006633" stroke-width="8" />
+  <text x="100" y="185" font-family="Arial" font-size="14" text-anchor="middle" fill="#006633" font-weight="bold">80 ЖИЛ</text>
+</svg>

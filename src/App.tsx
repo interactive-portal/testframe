@@ -18,7 +18,7 @@ const UlziiPattern = ({ className }: { className?: string; key?: any }) => (
 
 export default function App() {
   const [photo, setPhoto] = useState<string | null>(null);
-  const [logo, setLogo] = useState<string | null>(null);
+  const [logo, setLogo] = useState<string | null>('/images/default-logo.svg');
   const [bgImage, setBgImage] = useState<string | null>(null);
   const [name, setName] = useState('Н.БУМАННАНЗАД');
   const [title, setTitle] = useState('ТАРИАЛАН СУМЫН УУГУУЛ, БАРУУН БҮСИЙН ЭРЧИМ ХҮЧНИЙ СИСТЕМ ТӨХК-НЫ ШУУРХАЙ ҮЙЛЧИЛГЭЭНИЙ ЭЛЖИЙН ИНЖЕНЕР');
