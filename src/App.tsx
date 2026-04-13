@@ -19,6 +19,7 @@ const UlziiPattern = ({ className }: { className?: string; key?: any }) => (
 export default function App() {
   const [photo, setPhoto] = useState<string | null>(null);
   const [logo, setLogo] = useState<string | null>(null);
+  const [bgImage, setBgImage] = useState<string | null>(null);
   const [name, setName] = useState('Н.БУМАННАНЗАД');
   const [title, setTitle] = useState('ТАРИАЛАН СУМЫН УУГУУЛ, БАРУУН БҮСИЙН ЭРЧИМ ХҮЧНИЙ СИСТЕМ ТӨХК-НЫ ШУУРХАЙ ҮЙЛЧИЛГЭЭНИЙ ЭЛЖИЙН ИНЖЕНЕР');
   const [amount, setAmount] = useState('1,000,000');
@@ -39,6 +40,15 @@ export default function App() {
     if (file) {
       const reader = new FileReader();
       reader.onload = (event) => setLogo(event.target?.result as string);
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleBgUpload = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => setBgImage(event.target?.result as string);
       reader.readAsDataURL(file);
     }
   };
@@ -102,11 +112,29 @@ export default function App() {
                     onChange={handlePhotoUpload}
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                   />
-                  <div className="border-2 border-dashed border-gray-200 group-hover:border-[#006633] rounded-xl p-8 transition-colors flex flex-col items-center gap-3 bg-gray-50/50">
-                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-gray-400 group-hover:text-[#006633] transition-colors">
-                      <Upload size={20} />
+                  <div className="border-2 border-dashed border-gray-200 group-hover:border-[#006633] rounded-xl p-6 transition-colors flex flex-col items-center gap-2 bg-gray-50/50">
+                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm text-gray-400 group-hover:text-[#006633] transition-colors">
+                      <Upload size={18} />
                     </div>
-                    <p className="text-sm font-medium text-gray-500 group-hover:text-gray-700">Зураг сонгох</p>
+                    <p className="text-xs font-medium text-gray-500 group-hover:text-gray-700">Зураг сонгох</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Арын зураг (Background)</label>
+                <div className="relative group">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleBgUpload}
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                  />
+                  <div className="border-2 border-dashed border-gray-200 group-hover:border-[#006633] rounded-xl p-6 transition-colors flex flex-col items-center gap-2 bg-gray-50/50">
+                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm text-gray-400 group-hover:text-[#006633] transition-colors">
+                      <Upload size={18} />
+                    </div>
+                    <p className="text-xs font-medium text-gray-500 group-hover:text-gray-700">Арын зураг сонгох</p>
                   </div>
                 </div>
               </div>
@@ -185,9 +213,13 @@ export default function App() {
                 ref={frameRef}
                 className="relative aspect-[4/5] w-full bg-white overflow-hidden flex flex-col items-center"
                 style={{ 
-                  backgroundImage: 'radial-gradient(circle at 50% 50%, #ffffff 0%, #f0f4f2 100%)'
+                  backgroundImage: bgImage ? `url(${bgImage})` : 'radial-gradient(circle at 50% 50%, #ffffff 0%, #f0f4f2 100%)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
                 }}
               >
+                {/* Background Overlay if image exists */}
+                {bgImage && <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]"></div>}
                 {/* Background Patterns */}
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
                   <div className="absolute top-0 left-0 w-full h-full grid grid-cols-6 gap-4 p-4">
