@@ -225,9 +225,9 @@ export default function App() {
                 </div>
 
                 {/* Top Logo & Anniversary */}
-                <div className="absolute top-4 left-4 z-20 flex flex-col items-start gap-4">
+                <div className="absolute top-4 left-2 z-20 flex flex-col items-start gap-4">
                   {logo ? (
-                    <img src={logo} alt="80 Logo" className="h-auto w-[220px] object-contain" />
+                    <img src={logo} alt="80 Logo" className="h-auto w-[220px] max-w-[200px] object-contain" />
                   ) : (
                     <div className="h-20 w-20 bg-green-50 rounded-full flex items-center justify-center border-2 border-[#006633]/20">
                       <Award className="text-[#006633]" size={40} />
@@ -236,8 +236,8 @@ export default function App() {
                 </div>
 
                 {/* Main Frame Circle */}
-                <div className="relative mt-16 z-10">
-                  <div className="w-[280px] h-[280px] rounded-full border-[10px] border-white shadow-2xl relative overflow-hidden bg-gray-100">
+                <div className="relative mt-[80px] z-10">
+                  <div className="w-[260px] h-[260px] rounded-full border-[10px] border-white shadow-2xl relative overflow-hidden bg-gray-100">
                     {photo ? (
                       <img src={photo} alt="User" className="w-full h-full object-cover" />
                     ) : (
@@ -249,28 +249,13 @@ export default function App() {
                   </div>
                   
                   {/* Circular Pattern Border */}
-                  <div className="absolute -inset-8 border-[2px] border-[#006633]/10 rounded-full pointer-events-none"></div>
-                  <div className="absolute -inset-12 border-[1px] border-[#006633]/5 rounded-full pointer-events-none"></div>
-                  
-                  {/* Ulzii Patterns around circle */}
-                  {/* {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
-                    <div 
-                      key={deg}
-                      className="absolute w-8 h-8 text-[#006633]/20"
-                      style={{
-                        top: '50%',
-                        left: '50%',
-                        transform: `translate(-50%, -50%) rotate(${deg}deg) translateY(-185px)`
-                      }}
-                    >
-                      <UlziiPattern className="w-full h-full" />
-                    </div>
-                  ))} */}
+                  <div className="absolute -inset-6 border-[2px] border-[#006633]/10 rounded-full pointer-events-none"></div>
+                  <div className="absolute -inset-10 border-[1px] border-[#006633]/5 rounded-full pointer-events-none"></div>
                 </div>
 
                 {/* Content Area */}
-                <div className="mt-10 px-12 text-center z-20 w-full space-y-2">
-                  <div className="space-y-1">
+                <div className="mt-12 px-6 text-center z-20 w-full space-y-2">
+                  <div className="space-y-1 pt-6">
                     <p className="text-[11px] font-bold text-[#006633] uppercase tracking-[0.2em] leading-tight max-w-[400px] mx-auto opacity-80">
                       {title}
                     </p>
@@ -281,7 +266,7 @@ export default function App() {
 
                   {/* Amount Badge */}
                   <div className="relative inline-block mt-2">
-                    <div className="bg-[#e63946] text-white px-10 py-3 rounded-xl shadow-lg shadow-red-900/20 relative z-10">
+                    <div className="bg-[#79b01f] rounded-full text-white px-10 py-3 shadow-lg shadow-red-900/20 relative z-10">
                       <p className="text-3xl font-black tracking-tighter flex items-center justify-center gap-2">
                         {amount} <span className="text-xl opacity-80">ТӨГРӨГ</span>
                       </p>
@@ -291,7 +276,7 @@ export default function App() {
 
                   {/* Footer Text */}
                   <div className="pt-4 space-y-1">
-                    <h3 className="text-4xl font-black text-[#1a3a2a] tracking-widest uppercase italic transform scale-y-110">
+                    <h3 className="text-4xl font-black text-[#1a3a2a] tracking-widest uppercase transform scale-y-110">
                       ХАНДИВЛАЛАА
                     </h3>
                     <div className="flex items-center justify-center gap-4 py-2">
@@ -299,7 +284,7 @@ export default function App() {
                       <Heart className="text-[#e63946] fill-[#e63946]" size={20} />
                       <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#006633]/20"></div>
                     </div>
-                    <p className="text-3xl font-bold text-[#006633] tracking-[0.3em] uppercase opacity-90">
+                    <p className="text-3xl font-bold text-[#79b01f] tracking-[0.3em] uppercase opacity-90">
                       БАЯРЛАЛАА
                     </p>
                   </div>
